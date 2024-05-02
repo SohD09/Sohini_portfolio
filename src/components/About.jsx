@@ -25,13 +25,18 @@ const About = () => {
               ABOUT ME
             </h1>
             <div className=" w-[80%] leading-10">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem iure
-              natus, optio nam, at molestias earum est doloremque necessitatibus
-              incidunt, perferendis hic aut cum odit laborum omnis nemo nesciunt
-              eligendi. Lorem ipsum dolor, sit amet consectetur adipisicing
-              elit. Earum provident, cumque ea hic doloremque velit pariatur
-              exercitationem architecto. Ratione quae quia esse rem amet, id
-              placeat deserunt saepe dolorem perspiciatis!
+              As a computer science graduate with a passion for innovation and
+              problem-solving, I am currently immersing myself in the world of
+              technology at Jadavpur University, where I am pursuing my Master's
+              in Computer Applications (MCA). My journey in the realm of
+              computing began with a fascination for coding and has evolved into
+              a deep-seated interest in web development and UI designing. Driven
+              by a desire to create seamless digital experiences, I constantly
+              seek to enhance my skills in front-end development, mastering
+              languages like HTML, CSS, and JavaScript. Crafting intuitive user
+              interfaces that marry functionality with aesthetics excites me,
+              and I thrive on the challenge of transforming complex ideas into
+              elegant designs that resonate with users.
             </div>
           </div>
         </motion.div>
