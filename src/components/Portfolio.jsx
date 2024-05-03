@@ -26,7 +26,7 @@ const projects = [
     id: 2,
     title: "React Jobs",
     img: "./src/assets/images/ReactJobs.png",
-    link: "",
+    link: "https://github.com/SohD09/react-jobs",
     languages: [
       "./src/assets/logos/react.png",
       "./src/assets/logos/javascript.png",
