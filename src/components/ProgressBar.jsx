@@ -1,5 +1,11 @@
 import React, { useRef } from "react";
-import { easeInOut, inView, motion, useInView } from "framer-motion";
+import {
+  easeInOut,
+  inView,
+  motion,
+  useAnimation,
+  useInView,
+} from "framer-motion";
 const textvariants = {
   open: {
     y: 0,
@@ -7,12 +13,29 @@ const textvariants = {
     transition: {
       duration: 1,
       delay: 0.5,
-      staggerChildren: 0.25,
     },
   },
   close: {
     y: 50,
     opacity: 0,
+  },
+};
+const progressVariants = {
+  open: {
+    opacity: 1,
+    y: 10,
+    transition: {
+      duration: 1,
+      delay: 0,
+    },
+  },
+  close: {
+    opacity: 0,
+
+    transition: {
+      duration: 0.5,
+      delay: 0.25,
+    },
   },
 };
 const ProgressBar = (props) => {
@@ -28,6 +51,7 @@ const ProgressBar = (props) => {
     labelColor = `white`,
     spinnerMode = false,
     spinnerSpeed = 1,
+    img = "",
   } = props;
 
   const center = size / 2,
@@ -37,8 +61,8 @@ const ProgressBar = (props) => {
     initialDashOffset = dashArray * 1,
     dashOffset = dashArray * ((100 - progress) / 100);
   const ref = useRef();
-  const isInView = useInView(ref, { threshold: 0.5 });
 
+  const textControl = useAnimation();
   return (
     <>
       <motion.div
@@ -70,6 +94,7 @@ const ProgressBar = (props) => {
               />
             </linearGradient>
           </defs>
+
           <motion.circle
             ref={ref}
             className={`svg-pi-indicator`}
@@ -89,28 +114,48 @@ const ProgressBar = (props) => {
               }
             }
           />
-          <text
+
+          <motion.image
+            x={center - size / 4} // Adjust position based on image size
+            y={center - size / 4}
+            width={size / 2}
+            height={size / 2}
+            xlinkHref={img}
+            onMouseEnter={() => {
+              textControl.start("open");
+            }}
+            onLoad={() => textControl.start("close")}
+            onMouseLeave={() => textControl.start("close")}
+            initial={{ opacity: 1 }}
+            whileHover={{
+              opacity: 0,
+              transition: { delay: 0, duration: 1 },
+            }}
+            style={{ cursor: "pointer" }}
+          />
+          <motion.text
             x={center}
-            y={center + 5}
+            y={center - 5}
             fontSize="20"
             fill={labelColor}
             textAnchor="middle"
             className=" w-full h-full cursor-pointer text-3xl font-semibold"
+            animate={textControl}
+            variants={progressVariants}
           >
             {progress}%
-          </text>
+          </motion.text>
         </svg>
-        {
-          <motion.div
-            variants={textvariants}
-            initial="close"
-            animate="open"
-            className="w-full text-2xl font-bold tracking-wider"
-            style={{ color: labelColor }}
-          >
-            <span className="w-fit ">{label}</span>
-          </motion.div>
-        }
+
+        <motion.div
+          variants={textvariants}
+          initial="close"
+          animate="open"
+          className="w-full text-2xl font-bold tracking-wider"
+          style={{ color: labelColor }}
+        >
+          <span className="w-fit ">{label}</span>
+        </motion.div>
       </motion.div>
     </>
   );

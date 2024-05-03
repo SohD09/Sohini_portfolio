@@ -38,44 +38,53 @@ const skillVariants = {
 const Skills = () => {
   const skillset = [
     {
-      skill: "Web Development",
+      skill: "Java",
       progress: 90,
+      img: "./src/assets/logos/Java.png",
     },
     {
-      skill: "Web Design",
-      progress: 96,
-    },
-    {
-      skill: "Problem Solving",
+      skill: "Python",
       progress: 80,
+      img: "./src/assets/logos/python.png",
     },
     {
-      skill: "React",
-      progress: 90,
+      skill: "HTML",
+      progress: 95,
+      img: "./src/assets/logos/Html.png",
+    },
+    {
+      skill: "CSS",
+      progress: 95,
+      img: "./src/assets/logos/css.png",
+    },
+
+    {
+      skill: "Java Script",
+      progress: 70,
+      img: "./src/assets/logos/javascript.png",
     },
     {
       skill: "SQL",
       progress: 90,
+      img: "./src/assets/logos/sql.png",
     },
     {
-      skill: "JS",
-      progress: 70,
+      skill: "React JS",
+      progress: 80,
+      img: "./src/assets/logos/react.png",
     },
     {
-      skill: "HTML",
+      skill: "Tailwind CSS",
       progress: 90,
-    },
-    {
-      skill: "CSS",
-      progress: 90,
+      img: "./src/assets/logos/tailwind.png",
     },
   ];
   const settings = {
     dots: false,
     infinite: false,
     speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
+    slidesToShow: 5,
+    slidesToScroll: 3,
     adaptiveHeight: false,
   };
   return (
@@ -86,7 +95,7 @@ const Skills = () => {
             variants={textvariants}
             initial="initial"
             whileInView="animate"
-            className="text-indigo-400 text-5xl font-semibold tracking-wider"
+            className="text-indigo-400 text-5xl font-semibold tracking-[.2em]"
           >
             SKILLS
           </motion.h2>
@@ -114,6 +123,7 @@ const Skills = () => {
                         <ProgressBar
                           progress={skill.progress}
                           label={skill.skill}
+                          img={skill.img}
                         />
                       </motion.div>
                     </div>

@@ -12,19 +12,28 @@ const projects = [
     id: 1,
     title: "ML Pedia",
     img: "./src/assets/images/MLPedia.png",
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia explicabo voluptas possimus eius illum illo sunt fugit temporibus quibusdam facilis, cumque, quod dolorum praesentium dolor, voluptatem vero aut. Repudiandae, alias.",
+    link: "https://github.com/ArkadebMisra/MLPedia",
+    languages: [
+      "./src/assets/logos/python.png",
+      "./src/assets/logos/javascript.png",
+      "./src/assets/logos/html.png",
+      "./src/assets/logos/tailwind.png",
+      "./src/assets/logos/django.png",
+    ],
+    desc: "MLPedia is a technology-driven GUI based way to simplify activities like plotting data, defining prediction models, applying various ML algorithms on data etc for both users who are uncomfortable or unable to code and the programming savvy users.Users can use the tools available using any desktop or laptop device from anywhere through the internet.",
   },
   {
     id: 2,
     title: "React Jobs",
     img: "./src/assets/images/ReactJobs.png",
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia explicabo voluptas possimus eius illum illo sunt fugit temporibus quibusdam facilis, cumque, quod dolorum praesentium dolor, voluptatem vero aut. Repudiandae, alias.",
-  },
-  {
-    id: 3,
-    title: "Dairy Management",
-    img: "./src/assets/images/DairyProduct.png",
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia explicabo voluptas possimus eius illum illo sunt fugit temporibus quibusdam facilis, cumque, quod dolorum praesentium dolor, voluptatem vero aut. Repudiandae, alias.",
+    link: "",
+    languages: [
+      "./src/assets/logos/react.png",
+      "./src/assets/logos/javascript.png",
+      "./src/assets/logos/html.png",
+      "./src/assets/logos/tailwind.png",
+    ],
+    desc: "ReactJobs ia a website that lets users browse for jobs, as well as let recruiters post new jobs, edit existing jobs and delete jobs. This project uses JSON-Server for a mock backend.",
   },
 ];
 function useParallax(value = MotionValue, distance) {
@@ -47,9 +56,18 @@ const Single = ({ item }) => {
           </div>
           <motion.div className=" flex flex-1 flex-col gap-7" style={{ y }}>
             <h2 className="text-3xl text-slate-50">{item.title}</h2>
+            <div className="flex gap-3 ">
+              {item.languages.map((language) => (
+                <div className="h-10 w-12">
+                  <img className="h-full w-full" src={language} alt="" />
+                </div>
+              ))}
+            </div>
             <p className=" text-slate-400">{item.desc}</p>
             <div className="w-[30%]">
-              <Button text={"GitHub Link"} />
+              <a href={item.link} target="blank">
+                <Button text={"GitHub Link"} />
+              </a>
             </div>
           </motion.div>
         </div>
@@ -70,7 +88,7 @@ const Portfolio = () => {
       ref={ref}
     >
       <div className=" text-center sticky left-0 top-0  pt-8">
-        <div className="text-slate-50 text-5xl font-semibold tracking-wider">
+        <div className="text-slate-50 text-5xl font-semibold tracking-[.2em]">
           PROJECTS
         </div>
         <motion.div
