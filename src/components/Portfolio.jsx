@@ -72,14 +72,14 @@ const Single = ({ item }) => {
                   <img
                     className="h-full w-full object-contain"
                     src={language}
-                    alt=""
+                    alt="projrct thumbnail"
                   />
                 </div>
               ))}
             </div>
             <p className=" text-slate-400 mobile:text-[15px]">{item.desc}</p>
             <div className="w-[30%] mobile:w-full">
-              <a href={item.link} target="blank">
+              <a href={item.link} target="blank" alt="project-link">
                 <Button text={"GitHub Link"} />
               </a>
             </div>

@@ -27,6 +27,7 @@ const Navbar = () => {
             whileHover={{ scale: 1.5 }}
             transition={{ duration: 0.5 }}
             href="https://github.com/SohD09"
+            alt="Github url"
             target="blank"
           >
             <FaGithub className=" w-6 h-6 text-white bg-slate-950" />
@@ -37,6 +38,7 @@ const Navbar = () => {
             whileHover={{ scale: 1.5 }}
             transition={{ duration: 0.5 }}
             href="https://www.linkedin.com/in/sohini-das-4b4691210/"
+            alt="linkedIn url"
             target="blank"
           >
             <FaLinkedin className=" w-6 h-6 text-white bg-slate-950 " />
