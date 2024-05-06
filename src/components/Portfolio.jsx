@@ -62,7 +62,7 @@ const Single = ({ item }) => {
             />
           </div>
           <motion.div
-            className=" flex flex-1 flex-col gap-7 mobile:gap-4"
+            className=" flex flex-1 flex-col gap-5 mobile:gap-3"
             style={{ y }}
           >
             <h2 className="text-3xl text-slate-50 mobile:mt-2 mobile:text-2xl">
@@ -104,12 +104,12 @@ const Portfolio = () => {
       ref={ref}
     >
       <div className=" text-center sticky left-0 top-0  pt-8 mobile:top-[calc(100vh-100px)]">
-        <div className="text-slate-50 text-5xl font-semibold tracking-[.2em] mobile:text-3xl mobile:tracking-normal">
+        <div className="text-slate-50 text-5xl font-semibold tracking-[.2em] mobile:text-3xl mobile:tracking-normal mobile:font-normal">
           PROJECTS
         </div>
         <motion.div
           style={{ scaleX }}
-          className="progressbar sticky m-auto h-2 mt-4 bg-gradient-to-r from-cyan-300 to-purple-500 "
+          className="progressbar sticky m-auto h-2 mt-4 bg-gradient-to-r from-cyan-300 to-purple-500 mobile:mt-2"
         ></motion.div>
       </div>
       {projects.map((project) => (

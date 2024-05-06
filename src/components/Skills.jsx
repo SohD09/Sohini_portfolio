@@ -102,13 +102,13 @@ const Skills = () => {
   };
   return (
     <div className="relative h-screen w-screen bg-gradient-to-b from-slate-950 to-blue-950">
-      <section className="relative h-[80%] w-[80%] m-auto ">
+      <section className="relative h-[80%] w-[90%] m-auto mobile:w-[80%]">
         <div className="absolute w-full h-full flex flex-col justify-center gap-10 mobile:gap-7">
           <motion.h2
             variants={textvariants}
             initial="initial"
             whileInView="animate"
-            className="text-indigo-400 text-5xl font-semibold tracking-[.2em] mobile:text-3xl mobile:mt-20"
+            className="text-indigo-400 text-5xl ml-2 font-semibold tracking-[.2em] mobile:text-3xl mobile:mt-20"
           >
             SKILLS
           </motion.h2>

@@ -26,7 +26,8 @@ const Navbar = () => {
             initial={{ scale: 1 }}
             whileHover={{ scale: 1.5 }}
             transition={{ duration: 0.5 }}
-            href=""
+            href="https://github.com/SohD09"
+            target="blank"
           >
             <FaGithub className=" w-6 h-6 text-white bg-slate-950" />
             {/* <img className=' w-9 h-9 bg-slate-950 lg:w-6 lg:h-6 'src='../src/assets/images/github.png' alt="" /> */}
@@ -35,7 +36,8 @@ const Navbar = () => {
             initial={{ scale: 1 }}
             whileHover={{ scale: 1.5 }}
             transition={{ duration: 0.5 }}
-            href=""
+            href="https://www.linkedin.com/in/sohini-das-4b4691210/"
+            target="blank"
           >
             <FaLinkedin className=" w-6 h-6 text-white bg-slate-950 " />
           </motion.a>

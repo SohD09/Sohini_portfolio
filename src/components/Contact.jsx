@@ -1,7 +1,9 @@
 import React, { useRef, useState } from "react";
-import Button from "./Button";
 import { motion, useInView } from "framer-motion";
+import { FaMailBulk, FaPhoneAlt } from "react-icons/fa";
+import { FaLocationDot } from "react-icons/fa6";
 import emailjs from "@emailjs/browser";
+import { toast } from "react-toastify";
 
 const variants = {
   initial: {
@@ -21,6 +23,7 @@ const variants = {
 const Contact = () => {
   const ref = useRef(null);
   const form = useRef();
+  const screenWidth = window.innerWidth;
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
   const sendEmail = (e) => {
@@ -36,52 +39,74 @@ const Contact = () => {
       .then(
         (result) => {
           setSuccess(true);
+          toast.success("Mail sent successfully");
         },
         (error) => {
           setError(true);
+          toast.error("Could not send email");
         }
       );
   };
 
   return (
     <motion.div
-      className=" h-full max-w-[80%] m-auto flex items-center gap-12"
+      className=" h-full max-w-[80%] m-auto flex items-center gap-12 mobile:w-full mobile:p-5 mobile:flex-col"
       variants={variants}
       initial="initial"
       whileInView="animate"
     >
       <motion.div
-        className="textcontainer flex flex-1 flex-col gap-10"
+        className="textcontainer flex flex-1 flex-col gap-10 mobile:gap-3 mobile:items-center mobile:justify-center mobile:text-center mobile:mt-10 mobile:flex-none"
         variants={variants}
       >
         <motion.h1
-          className=" text-[100px] text-indigo-400 leading-[88px]"
+          className=" text-[100px] text-indigo-400 leading-[90px] mobile:text-[36px] mobile:leading-[40px] laptop:text-[54px] laptop:leading-[50px]"
           variants={variants}
         >
           Let's work together
         </motion.h1>
         <motion.div variants={variants}>
-          <h2 className=" font-semibold text-2xl">Mail</h2>
-          <span className=" font-light text-white">sohinidas002@gmail.com</span>
+          <div className="flex gap-2 h-auto items-center mobile:justify-center">
+            <FaMailBulk />
+            <h2 className=" font-semibold text-2xl mobile:text-xl">Mail</h2>
+          </div>
+
+          <span className=" font-light text-white mobile:text-[15px]">
+            sohinidas002@gmail.com
+          </span>
         </motion.div>
         <motion.div variants={variants}>
-          <h2 className=" font-semibold text-2xl">Address</h2>
-          <span className=" font-light text-white">Rishra, Hooghly</span>
+          <div className="flex gap-2 h-auto items-center mobile:justify-center">
+            <FaLocationDot />
+            <h2 className=" font-semibold text-2xl mobile:text-xl">Address</h2>
+          </div>
+          <span className=" font-light text-white mobile:text-[15px]">
+            Rishra, Hooghly
+          </span>
         </motion.div>
         <motion.div variants={variants}>
-          <h2 className=" font-semibold text-2xl">Phone</h2>
-          <span className=" font-light text-white">+91 8335861325</span>
+          <div className="flex gap-2 h-auto items-center mobile:justify-center">
+            <FaPhoneAlt />
+            <h2 className=" font-semibold text-2xl mobile:text-xl">Phone</h2>
+          </div>
+          <span className=" font-light text-white mobile:text-[15px]">
+            +91 8335861325
+          </span>
         </motion.div>
       </motion.div>
-      <div className="formContainer flex-1 relative">
+      <div className="formContainer flex-1 relative mobile:w-[100%] ">
         <motion.div
           ref={ref}
-          className="phnsvg absolute m-auto -z-10"
+          className="phnsvg absolute m-auto -z-10 mobile:ml-12"
           initial={{ opacity: 1 }}
           whileInView={{ opacity: 0 }}
           transition={{ delay: 3, duration: 1 }}
         >
-          <svg width="550px" height="500px" viewBox="0 0 35.666 33.666">
+          <svg
+            width={screenWidth > 1280 ? 550 : screenWidth / 2}
+            height={screenWidth > 1280 ? 550 : screenWidth / 2}
+            viewBox="0 0 35.666 33.666"
+          >
             <defs>
               <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop
@@ -120,7 +145,7 @@ const Contact = () => {
         <motion.form
           ref={form}
           onSubmit={sendEmail}
-          className="flex flex-col gap-5"
+          className="flex flex-col gap-5 mobile:gap-3"
           action=""
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -141,7 +166,7 @@ const Contact = () => {
             className=" p-5 bg-transparent border-2 border-solid border-white rounded-md"
           />
           <textarea
-            rows={8}
+            rows={screenWidth / 200}
             placeholder="Message"
             name="message"
             className=" p-5 bg-transparent border-2 border-solid border-white rounded-md"
@@ -151,8 +176,6 @@ const Contact = () => {
             type="submit"
             value="Send"
           />
-          {error && "Error"}
-          {success && "Success"}
         </motion.form>
       </div>
     </motion.div>

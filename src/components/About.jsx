@@ -24,9 +24,11 @@ const About = () => {
 
   return (
     <div className="about h-screen bg-slate-950 ">
-      <div className="h-screen  max-w-[80%] m-auto flex mobile:flex-col mobile:h-[90%] mobile:gap-10">
-        <div className="h-full w-full m-auto flex-1 flex justify-center items-center mobile:h-[40%]  mobile:w-[60%]  ">
-          <div
+      <div className="h-screen  max-w-[80%] m-auto flex mobile:flex-col mobile:h-[90%] mobile:gap-5">
+        <div className="h-full w-full m-auto flex-1 flex justify-center items-center mobile:h-[40%]  mobile:w-[60%] mobile:flex-none ">
+          <motion.div
+            initial={{ y: -100 }}
+            whileInView={{ y: 0, transition: { stiffness: 400, damping: 20 } }}
             className="h-[80%] w-[80%] flex justify-center items-center"
             ref={ref}
           >
@@ -35,7 +37,7 @@ const About = () => {
               src="../src/assets/images/working.png"
               alt=""
             />
-          </div>
+          </motion.div>
         </div>
         <motion.div
           className=" h-full w-full flex-1 mobile:h-[40%] mobile:flex-3 "
@@ -45,7 +47,7 @@ const About = () => {
             <h1 className="text-5xl font-semibold text-white tracking-[.2em] mobile:text-3xl mobile:text-center">
               ABOUT ME
             </h1>
-            <div className=" w-[80%] leading-10 mobile:w-full mobile:leading-4 mobile:text-[10px] mobile:object-contain laptop:text-[20px] laptop:leading-6 laptop:w-full">
+            <div className=" w-[80%] leading-10 mobile:w-full mobile:leading-4 mobile:text-[10px] mobile:object-contain tablet:text-[20px] tablet:leading-6 tablet:w-full">
               As a computer science graduate with a passion for innovation and
               problem-solving, I am currently immersing myself in the world of
               technology at Jadavpur University, where I am pursuing my Master's
