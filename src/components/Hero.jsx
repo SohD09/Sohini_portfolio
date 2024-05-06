@@ -4,6 +4,7 @@ import { useTypewriter, Cursor } from "react-simple-typewriter";
 import { PiMouseSimpleLight } from "react-icons/pi";
 import { BsChevronDoubleDown } from "react-icons/bs";
 import resume from "../assets/resume/Resume.pdf";
+import hero from "../assets/images/hero.png";
 import { motion } from "framer-motion";
 const textvariants = {
   initial: {
@@ -124,11 +125,7 @@ const Hero = () => {
         animate="animate"
         className="absolute h-full right-24 bottom-0 w-auto tablet:w-[50%] tablet:right-10 tablet:bottom-12  mobile:h-[50%] mobile:w-full mobile:right-[5%] mobile:bottom-0 "
       >
-        <img
-          className="w-full h-full object-contain"
-          src="../src/assets/images/hero.png"
-          alt=""
-        />
+        <img className="w-full h-full object-contain" src={hero} alt="" />
       </motion.div>
     </div>
   );

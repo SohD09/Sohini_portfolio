@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import working from "../assets/images/working.png";
 
 function useParallax(value = MotionValue, distance) {
   return useTransform(value, [0, 1], [-distance, distance]);
@@ -34,7 +35,7 @@ const About = () => {
           >
             <img
               className="h-full w-full object-contain"
-              src="../src/assets/images/working.png"
+              src={working}
               alt=""
             />
           </motion.div>
@@ -47,7 +48,7 @@ const About = () => {
             <h1 className="text-5xl font-semibold text-white tracking-[.2em] mobile:text-3xl mobile:text-center">
               ABOUT ME
             </h1>
-            <div className=" w-[80%] leading-10 mobile:w-full mobile:leading-4 mobile:text-[10px] mobile:object-contain tablet:text-[20px] tablet:leading-6 tablet:w-full">
+            <div className=" w-[80%] leading-10 mobile:w-full mobile:leading-4 mobile:text-[10px] mobile:object-contain tablet:text-[20px] tablet:leading-6 tablet:w-full laptop:text-[20px] laptop:w-full laptop:leading-7">
               As a computer science graduate with a passion for innovation and
               problem-solving, I am currently immersing myself in the world of
               technology at Jadavpur University, where I am pursuing my Master's

@@ -4,6 +4,14 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { motion } from "framer-motion";
+import java from "../assets/logos/Java.png";
+import css from "../assets/logos/css.png";
+import html from "../assets/logos/Html.png";
+import javascript from "../assets/logos/javascript.png";
+import python from "../assets/logos/python.png";
+import reactlogo from "../assets/logos/react.png";
+import sql from "../assets/logos/sql.png";
+import tailwind from "../assets/logos/tailwind.png";
 const textvariants = {
   initial: {
     x: -50,
@@ -40,43 +48,43 @@ const Skills = () => {
     {
       skill: "Java",
       progress: 90,
-      img: "./src/assets/logos/Java.png",
+      img: java,
     },
     {
       skill: "Python",
       progress: 80,
-      img: "./src/assets/logos/python.png",
+      img: python,
     },
     {
       skill: "HTML",
       progress: 95,
-      img: "./src/assets/logos/Html.png",
+      img: html,
     },
     {
       skill: "CSS",
       progress: 95,
-      img: "./src/assets/logos/css.png",
+      img: css,
     },
 
     {
       skill: "Java Script",
       progress: 70,
-      img: "./src/assets/logos/javascript.png",
+      img: javascript,
     },
     {
       skill: "SQL",
       progress: 90,
-      img: "./src/assets/logos/sql.png",
+      img: sql,
     },
     {
       skill: "React JS",
       progress: 80,
-      img: "./src/assets/logos/react.png",
+      img: reactlogo,
     },
     {
       skill: "Tailwind CSS",
       progress: 90,
-      img: "./src/assets/logos/tailwind.png",
+      img: tailwind,
     },
   ];
   const screenWidth = window.innerWidth;

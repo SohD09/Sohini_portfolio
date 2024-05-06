@@ -6,33 +6,31 @@ import {
   useTransform,
   MotionValue,
 } from "framer-motion";
+
+import html from "../assets/logos/Html.png";
+import javascript from "../assets/logos/javascript.png";
+import python from "../assets/logos/python.png";
+import reactlogo from "../assets/logos/react.png";
+import django from "../assets/logos/django.png";
+import tailwind from "../assets/logos/tailwind.png";
+import reactJobs from "../assets/images/ReactJobs.png";
+import mlPedia from "../assets/images/MLPedia.png";
 import Button from "./Button";
 const projects = [
   {
     id: 1,
     title: "ML Pedia",
-    img: "./src/assets/images/MLPedia.png",
+    img: mlPedia,
     link: "https://github.com/ArkadebMisra/MLPedia",
-    languages: [
-      "./src/assets/logos/python.png",
-      "./src/assets/logos/javascript.png",
-      "./src/assets/logos/html.png",
-      "./src/assets/logos/tailwind.png",
-      "./src/assets/logos/django.png",
-    ],
+    languages: [python, javascript, html, tailwind, django],
     desc: "MLPedia is a technology-driven GUI based way to simplify activities like plotting data, defining prediction models, applying various ML algorithms on data etc for both users who are uncomfortable or unable to code and the programming savvy users.Users can use the tools available using any desktop or laptop device from anywhere through the internet.",
   },
   {
     id: 2,
     title: "React Jobs",
-    img: "./src/assets/images/ReactJobs.png",
+    img: reactJobs,
     link: "https://github.com/SohD09/react-jobs",
-    languages: [
-      "./src/assets/logos/react.png",
-      "./src/assets/logos/javascript.png",
-      "./src/assets/logos/html.png",
-      "./src/assets/logos/tailwind.png",
-    ],
+    languages: [reactlogo, javascript, html, tailwind],
     desc: "ReactJobs ia a website that lets users browse for jobs, as well as let recruiters post new jobs, edit existing jobs and delete jobs. This project uses JSON-Server for a mock backend.",
   },
 ];
