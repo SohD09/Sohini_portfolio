@@ -35,12 +35,12 @@ const Links = ({ setOpen }) => {
         <>
           <motion.div
             variants={itemVariants}
-            className="w-[70%] h-[17%] flex flex-col justify-around items-center "
+            className="w-[70%] h-[17%] flex flex-col justify-around items-center mobile:justify-evenly "
           >
             <motion.a
               whileHover={{ scale: 1.1 }}
               onClick={() => setOpen((prev) => !prev)}
-              className="w-full pt-3 h-11 text-center hover:bg-slate-700 rounded-md"
+              className="w-full pt-3 h-11 font-medium text-center hover:bg-slate-700 rounded-md mobile:text-xl mobile:pt-0"
               href={`#${item}`}
               key={item}
             >

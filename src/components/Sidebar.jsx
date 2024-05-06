@@ -33,7 +33,7 @@ const Sidebar = () => {
     >
       <motion.div
         variants={variants}
-        className=" fixed top-0 left-0 bottom-0 w-[400px] bg-slate-950 z-[9999]"
+        className=" fixed top-0 left-0 bottom-0 w-[400px] bg-slate-950 z-[9999] mobile:w-[250px]"
       >
         <Links setOpen={setOpen} />
       </motion.div>

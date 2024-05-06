@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { motion } from "framer-motion";
 const textvariants = {
   initial: {
-    x: -500,
+    x: -50,
     opacity: 0,
   },
   animate: {
@@ -79,23 +79,36 @@ const Skills = () => {
       img: "./src/assets/logos/tailwind.png",
     },
   ];
+  const screenWidth = window.innerWidth;
+  let noOfRows = screenWidth > 770 ? 1 : 2;
   const settings = {
     dots: false,
     infinite: false,
     speed: 500,
     slidesToShow: 5,
-    slidesToScroll: 3,
+    slidesToScroll: 2,
     adaptiveHeight: false,
+    rows: 1, // Display one row by default
+    responsive: [
+      {
+        breakpoint: 1280,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          rows: 2, // Display two rows for smaller screens
+        },
+      },
+    ],
   };
   return (
     <div className="relative h-screen w-screen bg-gradient-to-b from-slate-950 to-blue-950">
       <section className="relative h-[80%] w-[80%] m-auto ">
-        <div className="absolute w-full h-full flex flex-col justify-center gap-10 ">
+        <div className="absolute w-full h-full flex flex-col justify-center gap-10 mobile:gap-7">
           <motion.h2
             variants={textvariants}
             initial="initial"
             whileInView="animate"
-            className="text-indigo-400 text-5xl font-semibold tracking-[.2em]"
+            className="text-indigo-400 text-5xl font-semibold tracking-[.2em] mobile:text-3xl mobile:mt-20"
           >
             SKILLS
           </motion.h2>
@@ -103,13 +116,16 @@ const Skills = () => {
             variants={skillVariants}
             initial="close"
             whileInView="open"
-            className=" bg-slate-800 h-2/3 w-full rounded-xl justify-center bg-opacity-30"
+            className=" bg-slate-800 h-2/3 w-full rounded-xl justify-center bg-opacity-30 "
           >
             <motion.div
               variants={skillVariants}
               className="w-[3/4] h-full m-auto"
             >
-              <motion.div variants={skillVariants} className="mt-20 h-full">
+              <motion.div
+                variants={skillVariants}
+                className="mt-20 h-full mobile:mt-5"
+              >
                 <Slider {...settings}>
                   {skillset.map((skill) => (
                     <div className="cursor-pointer">
@@ -118,7 +134,7 @@ const Skills = () => {
                         initial={{ scale: 0.9 }}
                         whileHover={{ scale: 1.05 }}
                         transition={{ duration: 0.25 }}
-                        className=" w-[2/3] h-[100%] text-white flex justify-evenly"
+                        className=" w-[2/3] h-[100%] text-white flex justify-evenly "
                       >
                         <ProgressBar
                           progress={skill.progress}

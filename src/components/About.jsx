@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 function useParallax(value = MotionValue, distance) {
@@ -6,25 +6,46 @@ function useParallax(value = MotionValue, distance) {
 }
 const About = () => {
   const ref = useRef(null);
+
   const { scrollYProgress } = useScroll({ target: ref });
-  const y = useParallax(scrollYProgress, 500);
+  const [scrollDistance, setScrollDistance] = useState(500);
+  useEffect(() => {
+    // Calculate scroll distance based on screen width
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+    let newScrollDistance = 500; // Default scroll distance
+
+    newScrollDistance = screenWidth > 1024 ? 500 : screenHeight / 10;
+
+    setScrollDistance(newScrollDistance);
+  }, []);
+
+  const y = useParallax(scrollYProgress, scrollDistance);
+
   return (
-    <div className="about h-screen w-screen bg-slate-950 ">
-      <div className="h-screen  max-w-[80%] m-auto flex ">
-        <div className="h-full w-full m-auto flex-1 flex justify-center items-center">
+    <div className="about h-screen bg-slate-950 ">
+      <div className="h-screen  max-w-[80%] m-auto flex mobile:flex-col mobile:h-[90%] mobile:gap-10">
+        <div className="h-full w-full m-auto flex-1 flex justify-center items-center mobile:h-[40%]  mobile:w-[60%]  ">
           <div
             className="h-[80%] w-[80%] flex justify-center items-center"
             ref={ref}
           >
-            <img className="" src="../src/assets/images/working.png" alt="" />
+            <img
+              className="h-full w-full object-contain"
+              src="../src/assets/images/working.png"
+              alt=""
+            />
           </div>
         </div>
-        <motion.div className=" h-full w-full flex-1 " style={{ y }}>
-          <div className="h-full w-full flex flex-col justify-center gap-10">
-            <h1 className="text-5xl font-semibold text-white tracking-[.2em] ">
+        <motion.div
+          className=" h-full w-full flex-1 mobile:h-[40%] mobile:flex-3 "
+          style={{ y }}
+        >
+          <div className="h-full w-full flex flex-col justify-center gap-10 mobile:h-[90%] mobile:gap-5 laptop:gap-6">
+            <h1 className="text-5xl font-semibold text-white tracking-[.2em] mobile:text-3xl mobile:text-center">
               ABOUT ME
             </h1>
-            <div className=" w-[80%] leading-10">
+            <div className=" w-[80%] leading-10 mobile:w-full mobile:leading-4 mobile:text-[10px] mobile:object-contain laptop:text-[20px] laptop:leading-6 laptop:w-full">
               As a computer science graduate with a passion for innovation and
               problem-solving, I am currently immersing myself in the world of
               technology at Jadavpur University, where I am pursuing my Master's

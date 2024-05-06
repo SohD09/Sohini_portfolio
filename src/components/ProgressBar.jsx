@@ -39,12 +39,22 @@ const progressVariants = {
   },
 };
 const ProgressBar = (props) => {
+  let screenWidth = window.innerWidth;
+  let circleSize = 100;
+  if (screenWidth > 1281) {
+    circleSize = 250;
+  } else if (screenWidth > 1025) {
+    circleSize = 200;
+  } else if (screenWidth > 380) {
+    circleSize = 170;
+  }
+  let width = screenWidth > 1025 ? 20 : 10;
   let {
-    size = 250,
+    size = circleSize,
     progress = 0,
-    trackWidth = 20,
+    trackWidth = width,
     trackColor = `rgb(51 65 85)`,
-    indicatorWidth = 20,
+    indicatorWidth = width,
     indicatorColor = `rgb(103 232 249)`,
     indicatorCap = `round`,
     label = ``,
@@ -139,7 +149,7 @@ const ProgressBar = (props) => {
             fontSize="20"
             fill={labelColor}
             textAnchor="middle"
-            className=" w-full h-full cursor-pointer text-3xl font-semibold"
+            className=" w-full h-full cursor-pointer text-3xl font-semibold mobile:text-xl mobile:font-light"
             animate={textControl}
             variants={progressVariants}
           >
@@ -151,7 +161,7 @@ const ProgressBar = (props) => {
           variants={textvariants}
           initial="close"
           animate="open"
-          className="w-full text-2xl font-bold tracking-wider"
+          className="w-full text-2xl font-bold tracking-wider mobile:font-normal"
           style={{ color: labelColor }}
         >
           <span className="w-fit ">{label}</span>

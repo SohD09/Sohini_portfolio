@@ -3,6 +3,7 @@ import Button from "./Button";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 import { PiMouseSimpleLight } from "react-icons/pi";
 import { BsChevronDoubleDown } from "react-icons/bs";
+import resume from "../assets/resume/Resume.pdf";
 import { motion } from "framer-motion";
 const textvariants = {
   initial: {
@@ -32,7 +33,7 @@ const sliderVariants = {
     x: 0,
   },
   animate: {
-    x: "-50%",
+    x: "-100%",
     transition: {
       repeat: Infinity,
       repeatType: "mirror",
@@ -61,17 +62,17 @@ const Hero = () => {
     loop: true,
   });
   return (
-    <div className="hero relative h-[calc(100vh-100px)] w-screen bg-gradient-to-b from-slate-950 to-blue-950 ">
+    <div className="hero relative h-[calc(100vh-100px)] bg-gradient-to-b from-slate-950 to-blue-950 ">
       <div className="h-full max-w-[80%] m-auto ">
         <motion.div
           variants={textvariants}
           initial="initial"
           animate="animate"
-          className="flex flex-col h-full justify-center gap-10"
+          className="flex flex-col h-full gap-10 justify-center text-left items-start mobile:h-1/2 mobile:text-center mobile:w-full mobile:gap-5 mobile:items-center"
         >
           <motion.h1
             variants={textvariants}
-            className=" text-4xl font-bold  text-indigo-400 leading-relaxed"
+            className=" font-bold text-indigo-400 leading-relaxed text-4xl mobile:text-2xl "
           >
             Hi, I am <br />
             <motion.span className="hover:text-cyan-300 tracking-[0.2em]">
@@ -83,7 +84,7 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1, ease: "easeIn" }}
-            className="text-7xl text-white font-semibold tracking-wider"
+            className=" text-white font-semibold tracking-wider text-7xl tablet:text-4xl mobile:text-3xl"
           >
             <span> {text}</span>
             <span>
@@ -96,6 +97,9 @@ const Hero = () => {
             </a>
             <a href="#Contact">
               <Button text={"Contact Me"} />
+            </a>
+            <a href={resume} download>
+              <Button text={"Resume"} />
             </a>
           </motion.div>
           <motion.div variants={textvariants} animate="scrollButton">
@@ -110,7 +114,7 @@ const Hero = () => {
         variants={sliderVariants}
         initial="initial"
         animate="animate"
-        className=" absolute w-full -bottom-10 left-0 text-[23vh] tracking-wide whitespace-nowrap overflow-x-hidden text-violet-900 opacity-10 "
+        className=" absolute w-full -bottom-10 left-0 text-[23vh] tracking-wide whitespace-nowrap overflow-hidden text-violet-900 opacity-10 mobile:hidden tablet:text-[9vh] tablet:tracking-tighter "
       >
         WEB DEVELOPER
       </motion.div>
@@ -118,9 +122,13 @@ const Hero = () => {
         variants={imagevariants}
         initial="initial"
         animate="animate"
-        className=" absolute right-24 -top-11 h-full"
+        className="absolute h-full right-24 bottom-0 w-auto tablet:w-[50%] tablet:right-10 tablet:bottom-12  mobile:h-[50%] mobile:w-full mobile:right-[5%] mobile:bottom-0 "
       >
-        <img className="" src="../src/assets/images/hero.png" alt="" />
+        <img
+          className="w-full h-full object-contain"
+          src="../src/assets/images/hero.png"
+          alt=""
+        />
       </motion.div>
     </div>
   );

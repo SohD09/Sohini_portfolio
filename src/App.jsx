@@ -9,21 +9,33 @@ import About from "./components/About";
 const App = () => {
   return (
     <>
-      <section id="Home" className=" h-screen snap-center">
+      <section
+        id="Home"
+        className=" h-screen w-screen snap-center overflow-hidden"
+      >
         <Navbar />
         <Hero />
       </section>
-      <section id="About" className=" h-screen snap-center">
+      <section
+        id="About"
+        className=" h-screen w-screen snap-center overflow-hidden"
+      >
         <About />
       </section>
-      <section id="Skills" className=" h-screen snap-center">
+      <section
+        id="Skills"
+        className=" h-screen w-screen snap-center overflow-hidden"
+      >
         <Skills />
       </section>
       <section id="Portfolio">
         <Portfolio />
       </section>
 
-      <section id="Contact" className=" h-screen snap-center">
+      <section
+        id="Contact"
+        className=" h-screen w-screen snap-center overflow-hidden"
+      >
         <Contact />
       </section>
     </>
